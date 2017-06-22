@@ -1,0 +1,46 @@
+# The following lines were added by compinstall
+
+zstyle ':completion:*' completer _list _expand _complete _ignored _correct _approximate
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' max-errors 5
+zstyle :compinstall filename '/home/rhapsodos/.zshrc'
+
+alias ls='ls --color=auto'
+
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -v
+bindkey "^R" history-incremental-search-backward
+# End of lines configured by zsh-newuser-install
+
+autoload -Uz promptinit
+promptinit
+prompt fade
+
+#USER SETTINGS#
+
+#Toujours faire preuve de politesse quand on demande une friandise
+alias please='sudo  '
+#Ouvre un nouveau terminal depuis un autre dans le même dossier que le 
+#terminal père
+alias nt='xterm &' 
+
+zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+zstyle ':completion:*:warnings' format '%BDésolé, pas de résultats pour : %d%b'
+zstyle ':completion:*' menu select=2
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+
+# OPAM configuration
+. /home/rhapsodos/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+export QT_QPA_PLATFORMTHEME=qt5ct
+
+# Mise à jour auto de la musique
+alias majmus='for i in ~/Soulseek\ Downloads/complete/* ;
+              do ln -s $i ~/Musique/`basename $i | tr '"'"' '"'"' '"'"'_'"'"'`;
+              done'
+alias deffconf='/home/rhapsodos/dotfiles_backup/def_fichierconf.sh  '

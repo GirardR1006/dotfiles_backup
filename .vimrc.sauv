@@ -1,0 +1,48 @@
+vnoremap <C-c> "*
+"Configure le passage à un autre onglet via les touches F2 et SHIFT-F2
+set switchbuf=usetab,newtab
+nnoremap <F2> :tabn<CR>
+inoremap <F2> :tabn<CR>
+nnoremap <S-F2> :tabp<CR>
+nnoremap <S-F8> :tabclose<CR>
+"Automatise l'indentation
+filetype plugin indent on
+filetype plugin on
+"Configuration de la compression ou de l'expansion de blocs de texte
+setlocal foldmethod=manual
+inoremap <C-F> <C-O>za
+onoremap <C-F> <C-C>za
+nnoremap <C-F> za
+vnoremap <C-F> zf
+vnoremap <S-F> zd
+vnoremap <C-c> "*y
+autocmd BufWinLeave *.* mkview
+autocmd BufWinEnter *.* silent loadview
+"NOTE: pour commenter: passer en mode visuel bloc, sélectionner les lignes à
+"commenter,passer en mode insertion, insérer le caractère de commentaire au début de la ligne,
+"appuyer sur Esc 
+
+set nocompatible
+
+syntax on "Coloration syntaxique
+set fileformat=unix "Passage à la ligne: \n 
+
+set autoindent "Indentation automatique
+set backspace=indent,eol,start
+set shiftwidth=4  "Indentation: 4 espaces
+set softtabstop=4 "Insérer 4 espaces quand Tab est pressé
+set expandtab "Utilisation d'espaces à la place des tabulations
+set cindent
+set smarttab
+set textwidth=80
+
+"Configuration de Haskell, avec le plugin haskell-mode
+"Chargement de ghc pour le plugin dédié
+au BufEnter *.hs compiler ghc
+
+"Chemin du navigateur internet pour la génération de doc
+let g:haddock_browser = "/usr/bin/google-chrome-stable"
+
+"configuration de OCaml
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
