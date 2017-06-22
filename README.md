@@ -1,2 +1,3 @@
 # dotfiles_backup
-backup repository for config files. Scripts inside too
+Backup repository for config files, with scripts to automatize the backup
+process.
