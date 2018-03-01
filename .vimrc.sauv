@@ -34,7 +34,11 @@ set softtabstop=4 "Insérer 4 espaces quand Tab est pressé
 set expandtab "Utilisation d'espaces à la place des tabulations
 set cindent
 set smarttab
-set textwidth=80
+set textwidth=120
+set number
+set hlsearch
+set incsearch
+set magic
 
 "Configuration de Haskell, avec le plugin haskell-mode
 "Chargement de ghc pour le plugin dédié
@@ -46,3 +50,5 @@ let g:haddock_browser = "/usr/bin/google-chrome-stable"
 "configuration de OCaml
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
+
